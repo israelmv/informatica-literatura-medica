@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="Informática para la Literatura en Ciencias Médicas - Posgrado UNAM" />
     <title>Informática para la Literatura en Ciencias Médicas</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Source+Code+Pro:wght@400;600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <style>
       * {
@@ -14,35 +14,37 @@
         box-sizing: border-box;
       }
 
+      /* Paleta Accesible (Colorblind-Safe: Okabe-Ito Palette) */
       :root {
-        --primary-color: #00d2ff;
-        --primary-dark: #0081a7;
-        --bg-dark: #0c1228;
-        --bg-darker: #162239;
-        --bg-darkest: #0a0f1e;
-        --text-light: #ffffff;
-        --text-gray: #b8c5d6;
-        --overlay: rgba(22, 34, 57, 0.95);
-        --section-padding: 80px;
+        --cb-blue: #0072b2;        /* Primario / Enlaces */
+        --cb-orange: #e69f00;      /* Acento / Highlights */
+        --cb-teal: #009e73;        /* Éxito / Estado */
+        --cb-bg-darkest: #0e141d;   /* Fondo principal */
+        --cb-bg-darker: #17212f;    /* Tarjetas y tablas */
+        --cb-bg-hover: #222f42;     /* Hover states */
+        --cb-text-light: #ffffff;   /* Texto principal */
+        --cb-text-muted: #d0d7de;   /* Texto secundario */
+        --cb-border: #303e54;       /* Bordes de alto contraste */
+        --header-height: 80px;
       }
 
       body {
         font-family: "Montserrat", sans-serif;
-        color: var(--text-light);
-        background-color: var(--bg-darkest);
+        color: var(--cb-text-light);
+        background-color: var(--cb-bg-darkest);
         line-height: 1.6;
         overflow-x: hidden;
       }
 
       /* Header */
       .main-header {
-        background-color: var(--overlay);
-        height: 80px;
+        background-color: rgba(14, 20, 29, 0.95);
+        height: var(--header-height);
         position: fixed;
         z-index: 1000;
         width: 100%;
         top: 0;
-        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+        border-bottom: 2px solid var(--cb-blue);
       }
 
       .header-container {
@@ -56,15 +58,17 @@
       }
 
       .logo a {
-        font-size: 22px;
+        font-size: 20px;
         font-weight: 800;
-        color: var(--text-light);
+        color: var(--cb-text-light);
         text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 10px;
       }
 
-      .logo a em {
-        color: var(--primary-color);
-        font-style: normal;
+      .logo a i {
+        color: var(--cb-orange);
       }
 
       .main-nav ul {
@@ -74,51 +78,64 @@
       }
 
       .main-nav ul li a {
-        color: var(--text-light);
+        color: var(--cb-text-light);
         text-decoration: none;
-        padding: 8px 12px;
+        padding: 8px 14px;
         font-size: 13px;
         font-weight: 600;
         text-transform: uppercase;
-        transition: all 0.3s ease;
+        border-radius: 4px;
+        transition: background 0.2s ease;
       }
 
       .main-nav ul li a:hover {
-        color: var(--primary-color);
+        background-color: var(--cb-blue);
       }
 
-      /* Banner */
+      /* Banner con Fondo de Bioliteratura (Text red + ADN + Datos) */
       .main-banner {
         position: relative;
-        padding-top: 140px;
-        padding-bottom: 80px;
+        padding-top: calc(var(--header-height) + 60px);
+        padding-bottom: 90px;
         text-align: center;
-        background: linear-gradient(rgba(10, 15, 30, 0.85), rgba(10, 15, 30, 0.95)),
-          url("https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1920&q=80") center/cover;
+        background: linear-gradient(180deg, rgba(14, 20, 29, 0.85) 0%, rgba(14, 20, 29, 0.98) 100%),
+          url("https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&q=80") center/cover fixed;
       }
 
-      .banner-content h6 {
-        font-size: 15px;
-        color: var(--primary-color);
+      .banner-content {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      .banner-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background-color: var(--cb-blue);
+        color: var(--cb-text-light);
+        padding: 6px 16px;
+        border-radius: 20px;
+        font-size: 13px;
+        font-weight: 700;
         text-transform: uppercase;
-        letter-spacing: 2px;
-        margin-bottom: 15px;
-      }
-
-      .banner-content h1 {
-        font-size: 42px;
-        font-weight: 800;
         margin-bottom: 20px;
       }
 
-      .banner-content p {
-        max-width: 800px;
-        margin: 0 auto 30px;
-        color: var(--text-gray);
-        font-size: 15px;
+      .banner-content h1 {
+        font-size: 38px;
+        font-weight: 800;
+        margin-bottom: 20px;
+        color: var(--cb-text-light);
       }
 
-      /* Features Info */
+      .banner-content p {
+        color: var(--cb-text-muted);
+        font-size: 16px;
+        line-height: 1.8;
+      }
+
+      /* Tarjetas de Información General */
       .features-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -131,45 +148,102 @@
       }
 
       .feature-card {
-        background-color: var(--bg-darker);
-        padding: 30px;
+        background-color: var(--cb-bg-darker);
+        padding: 25px;
         border-radius: 8px;
-        border: 1px solid rgba(0, 210, 255, 0.1);
+        border: 1px solid var(--cb-border);
+        border-top: 4px solid var(--cb-orange);
       }
 
       .feature-card h4 {
-        color: var(--primary-color);
-        margin-bottom: 10px;
+        color: var(--cb-orange);
+        margin-bottom: 12px;
         font-size: 18px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
       }
 
-      /* Sections General */
+      .feature-card p {
+        color: var(--cb-text-muted);
+        font-size: 14px;
+      }
+
+      /* Secciones Generales */
       .section {
-        padding: var(--section-padding) 0;
+        padding: 70px 0;
       }
 
       .container {
-        max-width: 1300px;
+        max-width: 1350px;
         margin: 0 auto;
         padding: 0 20px;
       }
 
       .section-heading {
         text-align: center;
-        margin-bottom: 50px;
+        margin-bottom: 45px;
       }
 
       .section-heading h2 {
-        font-size: 32px;
-        color: var(--text-light);
+        font-size: 30px;
+        color: var(--cb-text-light);
+        display: inline-block;
+        border-bottom: 3px solid var(--cb-orange);
+        padding-bottom: 8px;
       }
 
-      /* Table Styling */
+      /* Tabs (Pestañas) */
+      .tabs-container {
+        background-color: var(--cb-bg-darker);
+        border-radius: 8px;
+        border: 1px solid var(--cb-border);
+        padding: 30px;
+      }
+
+      .tab-buttons {
+        display: flex;
+        gap: 10px;
+        border-bottom: 2px solid var(--cb-border);
+        margin-bottom: 25px;
+        flex-wrap: wrap;
+      }
+
+      .tab-button {
+        padding: 12px 20px;
+        background: none;
+        border: none;
+        color: var(--cb-text-muted);
+        font-size: 14px;
+        font-weight: 700;
+        cursor: pointer;
+        border-radius: 6px 6px 0 0;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .tab-button.active {
+        color: var(--cb-text-light);
+        background-color: var(--cb-blue);
+      }
+
+      .tab-content {
+        display: none;
+        color: var(--cb-text-muted);
+        font-size: 15px;
+      }
+
+      .tab-content.active {
+        display: block;
+      }
+
+      /* Tabla Accesible y de Alto Contraste */
       .table-container {
-        background-color: var(--bg-darker);
-        border-radius: 10px;
+        background-color: var(--cb-bg-darker);
+        border-radius: 8px;
+        border: 1px solid var(--cb-border);
         overflow-x: auto;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
       }
 
       table {
@@ -180,105 +254,91 @@
       }
 
       thead {
-        background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
-        color: white;
+        background-color: var(--cb-blue);
+        color: var(--cb-text-light);
       }
 
-      th, td {
-        padding: 15px 18px;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      th {
+        padding: 16px;
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      td {
+        padding: 16px;
+        border-bottom: 1px solid var(--cb-border);
         vertical-align: top;
+        color: var(--cb-text-muted);
       }
 
       tr:hover {
-        background-color: rgba(0, 210, 255, 0.03);
+        background-color: var(--cb-bg-hover);
+      }
+
+      /* Badges distintivos en entregables */
+      .badge-deliverable {
+        display: inline-block;
+        background-color: rgba(230, 159, 0, 0.15);
+        color: var(--cb-orange);
+        border: 1px solid var(--cb-orange);
+        padding: 4px 8px;
+        border-radius: 4px;
+        font-size: 12px;
+        font-weight: 600;
+        margin-bottom: 4px;
       }
 
       td a {
-        color: var(--primary-color);
-        text-decoration: none;
+        color: var(--cb-orange);
+        text-decoration: underline;
+        font-weight: 600;
       }
 
       td a:hover {
-        text-decoration: underline;
+        color: var(--cb-text-light);
       }
 
-      /* Tabs Section */
-      .tabs-container {
-        background-color: var(--bg-darker);
-        border-radius: 10px;
-        padding: 30px;
-      }
-
-      .tab-buttons {
-        display: flex;
-        gap: 10px;
-        border-bottom: 2px solid rgba(255, 255, 255, 0.1);
-        margin-bottom: 25px;
-      }
-
-      .tab-button {
-        padding: 12px 20px;
-        background: none;
-        border: none;
-        color: var(--text-gray);
-        font-size: 14px;
-        font-weight: 600;
-        cursor: pointer;
-      }
-
-      .tab-button.active {
-        color: var(--primary-color);
-        border-bottom: 2px solid var(--primary-color);
-      }
-
-      .tab-content {
-        display: none;
-      }
-
-      .tab-content.active {
-        display: block;
-      }
-
-      /* Tools */
+      /* Herramientas Grid */
       .tools-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
         gap: 20px;
       }
 
       .tool-card {
-        background: var(--bg-darker);
+        background: var(--cb-bg-darker);
+        border: 1px solid var(--cb-border);
         border-radius: 8px;
         padding: 25px;
         text-align: center;
         text-decoration: none;
-        border: 1px solid rgba(0,210,255,0.1);
-        transition: all 0.3s ease;
+        transition: all 0.2s ease;
       }
 
       .tool-card:hover {
-        border-color: var(--primary-color);
-        transform: translateY(-5px);
+        border-color: var(--cb-blue);
+        background-color: var(--cb-bg-hover);
+        transform: translateY(-4px);
       }
 
       .tool-card i {
         font-size: 36px;
-        color: var(--primary-color);
+        color: var(--cb-orange);
         margin-bottom: 12px;
       }
 
       .tool-card p {
-        color: var(--text-light);
-        font-weight: 600;
+        color: var(--cb-text-light);
+        font-weight: 700;
       }
 
       footer {
-        background-color: var(--bg-darkest);
-        padding: 25px 0;
+        background-color: var(--cb-bg-darkest);
+        padding: 30px 0;
         text-align: center;
-        border-top: 1px solid rgba(255, 255, 255, 0.05);
-        color: var(--text-gray);
+        border-top: 1px solid var(--cb-border);
+        color: var(--cb-text-muted);
         font-size: 13px;
       }
     </style>
@@ -290,7 +350,7 @@
     <header class="main-header">
       <div class="header-container">
         <div class="logo">
-          <a href="#"><em>PCM</em> Literatura Médica</a>
+          <a href="#"><i class="fas fa-book-medical"></i> PCM Literatura Médica</a>
         </div>
         <nav class="main-nav">
           <ul>
@@ -303,31 +363,33 @@
       </div>
     </header>
 
-    <!-- Banner Principal -->
+    <!-- Banner con temática de Bioliteratura -->
     <section class="main-banner" id="inicio">
       <div class="banner-content">
-        <h6>Posgrado en Ciencias Médicas • UNAM</h6>
+        <span class="banner-badge"><i class="fas fa-university"></i> Posgrado en Ciencias Médicas • UNAM</span>
         <h1>Informática para la Literatura en Ciencias Médicas</h1>
-        <p>Herramientas informáticas, bioinformáticas y metodológicas avanzadas para la búsqueda sistemática, organización y análisis crítico de la literatura biomédica.</p>
+        <p>
+          Herramientas informáticas, bioinformáticas y metodológicas avanzadas para la búsqueda sistemática, curaduría de datos, organización y análisis crítico de la literatura biomédica.
+        </p>
       </div>
     </section>
 
-    <!-- Datos del Curso -->
+    <!-- Información General -->
     <div class="features-grid">
       <div class="feature-card">
-        <h4><i class="fas fa-user-graduate"></i> Profesores</h4>
+        <h4><i class="fas fa-user-tie"></i> Profesores</h4>
         <p>• Dra. Layla Michán</p>
         <p>• Dr. Israel Muñoz Velasco</p>
       </div>
       <div class="feature-card">
-        <h4><i class="fas fa-clock"></i> Horario</h4>
-        <p>Martes de 16:00 a 18:00 hrs.</p>
-        <p><strong>Nivel:</strong> Posgrado</p>
+        <h4><i class="fas fa-calendar-alt"></i> Horario & Nivel</h4>
+        <p>• Martes de 16:00 a 18:00 hrs.</p>
+        <p>• Nivel: Posgrado</p>
       </div>
       <div class="feature-card">
-        <h4><i class="fas fa-envelope"></i> Contacto</h4>
-        <p>laylamichan@ciencias.unam.mx</p>
-        <p><a href="https://biogarabatos.blogspot.com/" target="_blank" style="color: var(--primary-color);">Blog Biogarabatos</a></p>
+        <h4><i class="fas fa-link"></i> Contacto y Blog</h4>
+        <p>• laylamichan@ciencias.unam.mx</p>
+        <p>• <a href="https://biogarabatos.blogspot.com/" target="_blank" style="color: var(--cb-orange);">Blog Biogarabatos</a></p>
       </div>
     </div>
 
@@ -339,24 +401,24 @@
         </div>
         <div class="tabs-container">
           <div class="tab-buttons">
-            <button class="tab-button active" data-tab="e-busqueda">Estrategias de Búsqueda</button>
-            <button class="tab-button" data-tab="e-gestion">Gestión & Automatización</button>
-            <button class="tab-button" data-tab="e-flujos">Flujos Reproducibles</button>
+            <button class="tab-button active" data-tab="tab-1"><i class="fas fa-search"></i> Estrategias de Búsqueda</button>
+            <button class="tab-button" data-tab="tab-2"><i class="fas fa-database"></i> Gestión & Automatización</button>
+            <button class="tab-button" data-tab="tab-3"><i class="fas fa-code-branch"></i> Flujos Reproducibles</button>
           </div>
-          <div class="tab-content active" id="e-busqueda">
-            <p>Formular estrategias avanzadas de búsqueda en bases de datos biomédicas de alto impacto como PubMed, Scopus y Web of Science con sintaxis complejas y estructuradas.</p>
+          <div class="tab-content active" id="tab-1">
+            <p>Formular estrategias avanzadas de búsqueda en bases de datos biomédicas de alto impacto (PubMed, Scopus, Web of Science) mediante sintaxis estructuradas y filtros especializados.</p>
           </div>
-          <div class="tab-content" id="e-gestion">
-            <p>Automatizar la gestión de referencias, el seguimiento de novedades mediante RSS y la síntesis estructurada de literatura a través de gestores digitales como Zotero.</p>
+          <div class="tab-content" id="tab-2">
+            <p>Automatizar la gestión de referencias, el seguimiento continuo vía feeds RSS y la síntesis crítica de evidencias utilizando gestores digitales como Zotero.</p>
           </div>
-          <div class="tab-content" id="e-flujos">
-            <p>Implementar flujos de trabajo digitales y reproducibles para la extracción, curaduría, evaluación cienciométrica y análisis de bio-ontologías en ciencias de la salud.</p>
+          <div class="tab-content" id="tab-3">
+            <p>Implementar flujos de trabajo digitales reproducibles para la extracción, evaluación cienciométrica, análisis ontológico y curaduría de la literatura en salud.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Programa y Temario Detallado -->
+    <!-- Programa y Temario -->
     <section class="section" id="programa">
       <div class="container">
         <div class="section-heading">
@@ -377,26 +439,30 @@
               <tr>
                 <td><strong>1</strong></td>
                 <td><strong>Presentación del curso</strong></td>
-                <td>• Realizar el test de investigación digital.<br>• Explorar bibliografía del curso.<br>• Revisar el blog y leer 5 entradas.</td>
-                <td>✅ Test<br>✒️ Bibliografía (2 arts)<br>📗 Ensayo (1.5 cuartillas)</td>
+                <td>• Test de investigación digital.<br>• Explorar bibliografía.<br>• Leer 5 entradas del blog.</td>
+                <td>
+                  <span class="badge-deliverable">✅ Test</span><br>
+                  <span class="badge-deliverable">✒️ Bibliografía</span><br>
+                  <span class="badge-deliverable">📗 Ensayo</span>
+                </td>
                 <td>
                   • <a href="https://biogarabatos.blogspot.com/2023/08/test-de-investigacion-digital.html" target="_blank">Test Digital</a><br>
-                  • <a href="https://www.zotero.org/groups/4563540/cursopcm/library" target="_blank">Biblioteca Zotero</a><br>
+                  • <a href="https://www.zotero.org/groups/4563540/cursopcm/library" target="_blank">Zotero PCM</a><br>
                   • <a href="https://biogarabatos.blogspot.com/" target="_blank">Blog Biogarabatos</a>
                 </td>
               </tr>
               <tr>
                 <td><strong>2</strong></td>
                 <td><strong>Conceptos básicos</strong></td>
-                <td>Leer el artículo sobre herramientas bibliográficas para la web de nueva generación.</td>
-                <td>🗺️ Mapa conceptual</td>
-                <td><a href="https://doi.org/10.1371/journal.pcbi.1000204" target="_blank">Hull et al. (2008) PLoS Comput Biol</a></td>
+                <td>Leer artículo sobre herramientas bibliográficas para la web de nueva generación.</td>
+                <td><span class="badge-deliverable">🗺️ Mapa conceptual</span></td>
+                <td><a href="https://doi.org/10.1371/journal.pcbi.1000204" target="_blank">Hull et al. (2008)</a></td>
               </tr>
               <tr>
                 <td><strong>3</strong></td>
                 <td><strong>Cultura científica</strong></td>
-                <td>Leer la entrada de blog, explorar el tablero e identificar temas principales.</td>
-                <td>📊 Infografía</td>
+                <td>Explorar entrada de blog y tablero de cultura científica.</td>
+                <td><span class="badge-deliverable">📊 Infografía</span></td>
                 <td>
                   • <a href="https://biogarabatos.blogspot.com/2025/02/cultura-cientifica-de-la-a-la-z.html" target="_blank">Cultura Científica A-Z</a><br>
                   • <a href="https://start.me/p/ydG76P/culturacientifica" target="_blank">Tablero Start.me</a>
@@ -405,117 +471,109 @@
               <tr>
                 <td><strong>4</strong></td>
                 <td><strong>Biblioguías</strong></td>
-                <td>Reunir las bibliotecas digitales más relevantes para tu disciplina usando biblioguías.</td>
-                <td>📋 Lista</td>
+                <td>Reunir bibliotecas digitales usando biblioguías.</td>
+                <td><span class="badge-deliverable">📋 Lista</span></td>
                 <td><a href="https://doi.org/10.59350/nnne1-sx6255" target="_blank">Michán (2023) Biblioguías</a></td>
               </tr>
               <tr>
                 <td><strong>5</strong></td>
                 <td><strong>La literatura científica</strong></td>
-                <td>Estudiar las dimensiones de la literatura, el ciclo de publicación e interactuar con un artículo.</td>
-                <td>🖍️ Presentación disciplina</td>
+                <td>Estudiar secciones, dimensiones y ciclo de publicación.</td>
+                <td><span class="badge-deliverable">🖍️ Presentación</span></td>
                 <td>
                   • <a href="https://biogarabatos.blogspot.com/2025/02/8-puntos-clave-de-la-literatura.html" target="_blank">8 Puntos Clave</a><br>
-                  • <a href="https://biogarabatos.blogspot.com/2023/08/dimensiones-de-la-literatura-en.html" target="_blank">Dimensiones</a><br>
-                  • <a href="https://biogarabatos.blogspot.com/2023/10/ciclo-de-la-publicacion-cientifica.html" target="_blank">Ciclo de Publicación</a>
+                  • <a href="https://biogarabatos.blogspot.com/2023/08/dimensiones-de-la-literatura-en.html" target="_blank">Dimensiones</a>
                 </td>
               </tr>
               <tr>
                 <td><strong>6</strong></td>
                 <td><strong>Tecnologías informáticas</strong></td>
-                <td>Entender criterios de clasificación y explorar herramientas para grabar explicación.</td>
-                <td>📹 Video (10 min)</td>
-                <td>
-                  • <a href="https://biogarabatos.blogspot.com/2023/09/clasificacion-de-las-herramientas-para.html" target="_blank">Clasificación Herramientas</a><br>
-                  • <a href="https://biogarabatos.blogspot.com/2025/08/tablero-de-herramientas-informaticas.html" target="_blank">Tablero Herramientas</a>
-                </td>
+                <td>Clasificación de herramientas y grabación explicativa.</td>
+                <td><span class="badge-deliverable">📹 Video (10 min)</span></td>
+                <td><a href="https://biogarabatos.blogspot.com/2025/08/tablero-de-herramientas-informaticas.html" target="_blank">Tablero Herramientas</a></td>
               </tr>
               <tr>
                 <td><strong>7</strong></td>
                 <td><strong>Referencias, citas y Zotero</strong></td>
-                <td>Uso de Zotero, formato APA, tecnología RSS y búsqueda en Ciencia Abierta.</td>
-                <td>📚 Zotero (≥10 refs)<br>🛜 Configuración RSS<br>✒️ Bibliografía APA</td>
+                <td>Uso de Zotero, estilo APA, tecnología RSS y Ciencia Abierta.</td>
+                <td>
+                  <span class="badge-deliverable">📚 Zotero (≥10 refs)</span><br>
+                  <span class="badge-deliverable">🛜 Configuración RSS</span>
+                </td>
                 <td>
                   • <a href="https://biogarabatos.blogspot.com/2023/03/zotero.html" target="_blank">Tutorial Zotero</a><br>
-                  • <a href="https://doi.org/10.22201/fm.20075057e.2024.49.23577" target="_blank">Michán & Romero (2024) RSS</a><br>
-                  • <a href="https://niboe.info/ciencia-abierta-se-hace/" target="_blank">NIBOE Ciencia Abierta</a>
+                  • <a href="https://doi.org/10.22201/fm.20075057e.2024.49.23577" target="_blank">Michán & Romero (2024)</a>
                 </td>
               </tr>
               <tr>
                 <td><strong>8</strong></td>
                 <td><strong>Bases de datos bibliográficas</strong></td>
-                <td>Revisar las bases de datos académicas más importantes en ciencias de la salud.</td>
-                <td>🎤 Audio (10 min)</td>
-                <td><a href="https://biogarabatos.blogspot.com/2023/05/bases-de-datos-de-literatura-academica.html" target="_blank">Bases de datos de literatura</a></td>
+                <td>Revisar bases de datos en ciencias de la salud.</td>
+                <td><span class="badge-deliverable">🎤 Audio (10 min)</span></td>
+                <td><a href="https://biogarabatos.blogspot.com/2023/05/bases-de-datos-de-literatura-academica.html" target="_blank">Bases de Datos Médicas</a></td>
               </tr>
               <tr>
                 <td><strong>9</strong></td>
                 <td><strong>Índices de citas para salud</strong></td>
-                <td>Buscar en biblioguías las bases de datos especializadas de la disciplina.</td>
-                <td>📋 Lista Top 5 BDs</td>
-                <td><a href="https://community.libguides.com" target="_blank">Community LibGuides</a></td>
+                <td>Identificar bases especializadas en la disciplina.</td>
+                <td><span class="badge-deliverable">📋 Top 5 BDs</span></td>
+                <td><a href="https://community.libguides.com" target="_blank">LibGuides Community</a></td>
               </tr>
               <tr>
                 <td><strong>10 - 11</strong></td>
                 <td><strong>Sistemas de organización</strong></td>
-                <td>Explorar tesauros y ontologías del área de interés.</td>
-                <td>📗 Documento explicado</td>
-                <td>Materiales de Tesauros y Ontologías en Salud</td>
+                <td>Explorar tesauros y ontologías en ciencias médicas.</td>
+                <td><span class="badge-deliverable">📗 Explicación escrita</span></td>
+                <td>Materiales Tesauros/Ontologías</td>
               </tr>
               <tr>
                 <td><strong>12</strong></td>
                 <td><strong>Biorevisiones</strong></td>
-                <td>Entender los diferentes tipos de revisiones bibliográficas existentes.</td>
-                <td>🔢 Tabla comparativa</td>
-                <td><a href="https://doi.org/10.24188/recia.v17.n1.2025.1076" target="_blank">Michán, Ramírez & Muñoz-Velasco (2025)</a></td>
+                <td>Tipos de revisiones bibliográficas en biociencias.</td>
+                <td><span class="badge-deliverable">🔢 Tabla comparativa</span></td>
+                <td><a href="https://doi.org/10.24188/recia.v17.n1.2025.1076" target="_blank">Michán et al. (2025) RECIA</a></td>
               </tr>
               <tr>
                 <td><strong>13</strong></td>
                 <td><strong>Cienciometría</strong></td>
-                <td>Análisis metodológico de un artículo bibliométrico del área.</td>
-                <td>📗 Documento de análisis</td>
-                <td>
-                  • <a href="https://biogarabatos.blogspot.com/2023/06/rudimentos-de-cienciometria.html" target="_blank">Rudimentos Cienciometría</a><br>
-                  • <a href="http://www.scielo.org.mx/scielo.php?script=sci_arttext&pid=S2007-50572013000200006&lng=es&tlng=es" target="_blank">Michán & Muñoz-Velasco (2013)</a>
-                </td>
+                <td>Análisis metodológico de un artículo bibliométrico.</td>
+                <td><span class="badge-deliverable">📗 Análisis metodológico</span></td>
+                <td><a href="http://www.scielo.org.mx/scielo.php?script=sci_arttext&pid=S2007-50572013000200006&lng=es&tlng=es" target="_blank">Michán & Muñoz-Velasco (2013)</a></td>
               </tr>
               <tr>
                 <td><strong>14</strong></td>
                 <td><strong>Revisiones vivas</strong></td>
-                <td>Definir y comprender la metodología de una *Living Review*.</td>
-                <td>📗 Documento conceptual</td>
+                <td>Metodología de *Living Reviews*.</td>
+                <td><span class="badge-deliverable">📗 Doc Conceptual</span></td>
                 <td><a href="https://github.com/lmichan/LivingReviews" target="_blank">GitHub Living Reviews</a></td>
               </tr>
               <tr>
                 <td><strong>15</strong></td>
                 <td><strong>Revistas científicas</strong></td>
-                <td>Explorar y analizar revistas de la especialidad.</td>
-                <td>📗 Nota de 1 cuartilla</td>
-                <td><a href="https://biogarabatos.blogspot.com/2026/04/revistas-cientificas-en-la-era-digital.html" target="_blank">Revistas en Era Digital</a></td>
+                <td>Análisis de revistas especializadas.</td>
+                <td><span class="badge-deliverable">📗 Nota (1 cuartilla)</span></td>
+                <td><a href="https://biogarabatos.blogspot.com/2026/04/revistas-cientificas-en-la-era-digital.html" target="_blank">Revistas Era Digital</a></td>
               </tr>
               <tr>
                 <td><strong>16</strong></td>
                 <td><strong>Ontologías</strong></td>
-                <td>Comprender bio-ontologías médicas y localizarlas en directorios.</td>
-                <td>📗 Ontología + artículo</td>
-                <td>
-                  • <a href="https://bioportal.bioontology.org/" target="_blank">BioPortal</a><br>
-                  • <a href="https://biogarabatos.blogspot.com/2023/06/web-semantica-y-ontologias-aplicadas.html" target="_blank">Web Semántica & Ontologías</a>
-                </td>
+                <td>Localizar bio-ontologías médicas en directorios.</td>
+                <td><span class="badge-deliverable">📗 Ontología + Artículo</span></td>
+                <td><a href="https://bioportal.bioontology.org/" target="_blank">BioPortal Directori</a></td>
               </tr>
               <tr>
                 <td><strong>17</strong></td>
                 <td><strong>Proceso editorial</strong></td>
-                <td>Comprender la terminología y etapas del proceso editorial.</td>
-                <td>🧩 Crucigrama (15 términos)</td>
-                <td>Materiales de Proceso Editorial Médicas</td>
+                <td>Etapas y terminología del proceso editorial.</td>
+                <td><span class="badge-deliverable">🧩 Crucigrama (15 términos)</span></td>
+                <td>Materiales Proceso Editorial</td>
               </tr>
               <tr>
                 <td><strong>18</strong></td>
                 <td><strong>Metadatos</strong></td>
-                <td>Comprender los fundamentos de metadatos científicos.</td>
-                <td>✍️ Ejercicios resueltos</td>
-                <td><a href="https://biogarabatos.blogspot.com/2026/04/el-abc-de-los-metadatos.html" target="_blank">El ABC de los metadatos</a></td>
+                <td>Fundamentos de metadatos científicos.</td>
+                <td><span class="badge-deliverable">✍️ Ejercicios resueltos</span></td>
+                <td><a href="https://biogarabatos.blogspot.com/2026/04/el-abc-de-los-metadatos.html" target="_blank">El ABC de Metadatos</a></td>
               </tr>
             </tbody>
           </table>
@@ -523,7 +581,7 @@
       </div>
     </section>
 
-    <!-- Recursos & Herramientas -->
+    <!-- Recursos Principales -->
     <section class="section" id="recursos">
       <div class="container">
         <div class="section-heading">
@@ -531,15 +589,15 @@
         </div>
         <div class="tools-grid">
           <a href="https://biogarabatos.blogspot.com/" target="_blank" class="tool-card">
-            <i class="fas fa-blog"></i>
+            <i class="fas fa-newspaper"></i>
             <p>Biogarabatos</p>
           </a>
           <a href="https://www.zotero.org/groups/4563540/cursopcm/library" target="_blank" class="tool-card">
-            <i class="fas fa-book-bookmark"></i>
-            <p>Zotero PCM</p>
+            <i class="fas fa-layer-group"></i>
+            <p>Biblioteca Zotero</p>
           </a>
           <a href="https://bioportal.bioontology.org/" target="_blank" class="tool-card">
-            <i class="fas fa-sitemap"></i>
+            <i class="fas fa-project-diagram"></i>
             <p>BioPortal</p>
           </a>
           <a href="https://github.com/lmichan/LivingReviews" target="_blank" class="tool-card">
@@ -553,7 +611,7 @@
     <!-- Footer -->
     <footer>
       <div class="container">
-        <p>Informática para la Literatura en Ciencias Médicas • Posgrado en Ciencias Médicas UNAM</p>
+        <p>Informática para la Literatura en Ciencias Médicas • Posgrado UNAM</p>
       </div>
     </footer>
 
