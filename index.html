@@ -368,10 +368,10 @@
         color: var(--cb-text-light);
       }
 
-      /* Herramientas de Búsqueda Rápida Biomédica */
+      /* Herramienta de Búsqueda Directa */
       .interactive-tools-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        grid-template-columns: 1fr;
         gap: 25px;
         margin-bottom: 40px;
       }
@@ -431,40 +431,110 @@
         background-color: #005a8d;
       }
 
-      /* Generador / Copiador de Sintaxis */
-      .syntax-item {
-        background-color: var(--cb-bg-darkest);
+      /* Widget de Mastodon Feed */
+      .mastodon-container {
+        background-color: var(--cb-bg-darker);
         border: 1px solid var(--cb-border);
-        border-radius: 4px;
-        padding: 10px;
-        margin-top: 10px;
+        border-radius: 8px;
+        padding: 25px;
+      }
+
+      .mastodon-header {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        font-family: 'Source Code Pro', monospace;
-        font-size: 12px;
+        margin-bottom: 20px;
+        flex-wrap: wrap;
+        gap: 15px;
       }
 
-      .syntax-code {
-        color: var(--cb-teal);
-        overflow-x: auto;
-        white-space: nowrap;
-        margin-right: 10px;
-      }
-
-      .btn-copy {
-        background: none;
-        border: 1px solid var(--cb-orange);
+      .mastodon-header h3 {
+        font-size: 18px;
         color: var(--cb-orange);
-        padding: 4px 8px;
-        border-radius: 4px;
-        font-size: 11px;
-        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 10px;
       }
 
-      .btn-copy:hover {
-        background: var(--cb-orange);
-        color: var(--cb-bg-darkest);
+      .mastodon-feed-list {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        max-height: 500px;
+        overflow-y: auto;
+        padding-right: 5px;
+      }
+
+      .toot-card {
+        background-color: var(--cb-bg-darkest);
+        border: 1px solid var(--cb-border);
+        border-radius: 6px;
+        padding: 15px;
+        transition: border-color 0.2s;
+      }
+
+      .toot-card:hover {
+        border-color: var(--cb-blue);
+      }
+
+      .toot-header {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 10px;
+      }
+
+      .toot-avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: 1px solid var(--cb-orange);
+      }
+
+      .toot-author-info {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .toot-author-name {
+        font-size: 14px;
+        font-weight: 700;
+        color: var(--cb-text-light);
+      }
+
+      .toot-author-handle {
+        font-size: 12px;
+        color: var(--cb-text-muted);
+      }
+
+      .toot-content {
+        font-size: 13px;
+        color: var(--cb-text-muted);
+        line-height: 1.5;
+        margin-bottom: 10px;
+      }
+
+      .toot-content p {
+        margin-bottom: 8px;
+      }
+
+      .toot-content a {
+        color: var(--cb-blue);
+        text-decoration: underline;
+      }
+
+      .toot-footer {
+        display: flex;
+        justify-content: space-between;
+        font-size: 11px;
+        color: var(--cb-text-muted);
+        border-top: 1px solid var(--cb-border);
+        padding-top: 8px;
+      }
+
+      .toot-footer a {
+        color: var(--cb-orange);
+        text-decoration: none;
       }
 
       /* Herramientas Grid */
@@ -526,13 +596,14 @@
             <li><a href="#objetivos">Objetivos</a></li>
             <li><a href="#programa">Programa</a></li>
             <li><a href="#herramientas">Búsqueda Directa</a></li>
+            <li><a href="#mastodon-section">Novedades</a></li>
             <li><a href="#recursos">Recursos</a></li>
           </ul>
         </nav>
       </div>
     </header>
 
-    <!-- Banner Principal con Imagen de Biblioteca de Fondo -->
+    <!-- Banner Principal -->
     <section class="main-banner" id="inicio">
       <div class="banner-content">
         <span class="banner-badge"><i class="fas fa-university"></i> Posgrado en Ciencias Médicas • UNAM</span>
@@ -775,15 +846,13 @@
     <section class="section" id="herramientas">
       <div class="container">
         <div class="section-heading">
-          <h2>Búsqueda Directa y Sintaxis Útiles</h2>
+          <h2>Búsqueda Directa en Bases Biomédicas</h2>
         </div>
         <div class="interactive-tools-grid">
-          
-          <!-- Buscador Directo -->
           <div class="tool-box">
-            <h3><i class="fas fa-search-plus"></i> Buscador Biomédico Directo</h3>
+            <h3><i class="fas fa-search-plus"></i> Consulta Directa</h3>
             <p style="font-size: 13px; color: var(--cb-text-muted); margin-bottom: 15px;">
-              Escribe tus términos y consulta directamente en la base de datos sin salir de tu flujo de trabajo:
+              Escribe tus términos de búsqueda para abrir los resultados directamente en el motor científico seleccionado:
             </p>
             <div class="search-form-direct">
               <input type="text" id="directSearchQuery" placeholder="ej. Microbiota AND Hypertension" />
@@ -792,10 +861,35 @@
                 <option value="pubmed">PubMed</option>
                 <option value="lens">The Lens</option>
               </select>
-              <button class="btn-action" onclick="executeDirectSearch()"><i class="fas fa-external-link-alt"></i></button>
+              <button class="btn-action" onclick="executeDirectSearch()"><i class="fas fa-external-link-alt"></i> Buscar</button>
             </div>
           </div>
-          
+        </div>
+      </div>
+    </section>
+
+    <!-- Integración con Mastodon Feed -->
+    <section class="section" id="mastodon-section">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Novedades de los Profesores en Mastodon</h2>
+        </div>
+        <div class="mastodon-container">
+          <div class="mastodon-header">
+            <h3><i class="fab fa-mastodon"></i> Timeline en Vivo</h3>
+            <div class="filter-pills">
+              <button class="pill-btn active" onclick="loadMastodonFeed('both')">Todos</button>
+              <button class="pill-btn" onclick="loadMastodonFeed('israel')">@israelmv</button>
+              <button class="pill-btn" onclick="loadMastodonFeed('lma')">@lma</button>
+            </div>
+          </div>
+          <div class="mastodon-feed-list" id="mastodonFeed">
+            <p style="text-align: center; color: var(--cb-text-muted); padding: 20px;">Cargando publicaciones de Mastodon...</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Recursos Principales -->
     <section class="section" id="recursos">
       <div class="container">
@@ -882,8 +976,8 @@
 
         searchInput.addEventListener("keyup", filterTable);
 
-        // Lógica de Pills de Filtro Rápido
-        const pillBtns = document.querySelectorAll(".pill-btn");
+        // Lógica de Pills de Filtro Rápido en la Tabla
+        const pillBtns = document.querySelectorAll("#programa .pill-btn");
         pillBtns.forEach((btn) => {
           btn.addEventListener("click", () => {
             pillBtns.forEach((p) => p.classList.remove("active"));
@@ -898,6 +992,9 @@
             filterTable();
           });
         });
+
+        // Carga inicial del feed de Mastodon
+        loadMastodonFeed('both');
       });
 
       // Búsqueda directa a motores científicos
@@ -919,10 +1016,82 @@
         window.open(url, "_blank");
       }
 
-      // Copiar código al portapapeles
-      function copyToClipboard(text) {
-        navigator.clipboard.writeText(text).then(() => {
-          alert("Sintaxis copiada al portapapeles: " + text);
+      // Conexión y consulta a API pública de Mastodon
+      const mastodonUsers = {
+        israel: {
+          server: "https://mastodon.social",
+          userId: "112613143527264879", // ID interno mastodon.social para @israelmv
+          handle: "@israelmv@mastodon.social",
+          name: "Israel Muñoz Velasco"
+        },
+        lma: {
+          server: "https://mstdn.social",
+          userId: "110825313175402484", // ID interno mstdn.social para @lma
+          handle: "@lma@mstdn.social",
+          name: "Layla Michán"
+        }
+      };
+
+      async function fetchUserToots(instanceUrl, accountId) {
+        try {
+          const response = await fetch(`${instanceUrl}/api/v1/accounts/${accountId}/statuses?limit=5`);
+          if (!response.ok) throw new Error("Error obteniendo datos");
+          return await response.json();
+        } catch (e) {
+          console.error("Error consultando Mastodon:", e);
+          return [];
+        }
+      }
+
+      async function loadMastodonFeed(userFilter) {
+        const container = document.getElementById("mastodonFeed");
+        container.innerHTML = `<p style="text-align: center; color: var(--cb-text-muted); padding: 20px;">Cargando publicaciones de Mastodon...</p>`;
+
+        let allToots = [];
+
+        if (userFilter === "israel" || userFilter === "both") {
+          const israelToots = await fetchUserToots(mastodonUsers.israel.server, mastodonUsers.israel.userId);
+          allToots = allToots.concat(israelToots);
+        }
+
+        if (userFilter === "lma" || userFilter === "both") {
+          const lmaToots = await fetchUserToots(mastodonUsers.lma.server, mastodonUsers.lma.userId);
+          allToots = allToots.concat(lmaToots);
+        }
+
+        // Ordenar por fecha decreciente
+        allToots.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+
+        if (allToots.length === 0) {
+          container.innerHTML = `<p style="text-align: center; color: var(--cb-text-muted); padding: 20px;">No se pudieron cargar publicaciones en este momento.</p>`;
+          return;
+        }
+
+        container.innerHTML = "";
+        allToots.forEach((toot) => {
+          const date = new Date(toot.created_at).toLocaleDateString("es-MX", {
+            day: "numeric",
+            month: "short",
+            year: "numeric"
+          });
+
+          const tootHtml = `
+            <div class="toot-card">
+              <div class="toot-header">
+                <img src="${toot.account.avatar}" alt="${toot.account.display_name}" class="toot-avatar" />
+                <div class="toot-author-info">
+                  <span class="toot-author-name">${toot.account.display_name || toot.account.username}</span>
+                  <span class="toot-author-handle">@${toot.account.acct}</span>
+                </div>
+              </div>
+              <div class="toot-content">${toot.content}</div>
+              <div class="toot-footer">
+                <span>📅 ${date}</span>
+                <a href="${toot.url}" target="_blank"><i class="fab fa-mastodon"></i> Ver en Mastodon</a>
+              </div>
+            </div>
+          `;
+          container.insertAdjacentHTML("beforeend", tootHtml);
         });
       }
     </script>
