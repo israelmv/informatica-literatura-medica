@@ -92,7 +92,7 @@
         background-color: var(--cb-blue);
       }
 
-      /* Banner con Fondo de Biblioteca + Superposición Oscura Accesible */
+      /* Banner Principal */
       .main-banner {
         position: relative;
         padding-top: calc(var(--header-height) + 70px);
@@ -239,6 +239,74 @@
         display: block;
       }
 
+      /* Buscador Interactivo y Filtros para la Tabla */
+      .search-container {
+        margin-bottom: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .search-input-wrapper {
+        position: relative;
+        width: 100%;
+      }
+
+      .search-input-wrapper i {
+        position: absolute;
+        left: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--cb-orange);
+      }
+
+      .search-input-wrapper input {
+        width: 100%;
+        padding: 14px 14px 14px 45px;
+        border-radius: 6px;
+        border: 1px solid var(--cb-border);
+        background-color: var(--cb-bg-darker);
+        color: var(--cb-text-light);
+        font-size: 14px;
+        outline: none;
+        transition: border-color 0.2s;
+      }
+
+      .search-input-wrapper input:focus {
+        border-color: var(--cb-blue);
+      }
+
+      .filter-pills {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+
+      .filter-label {
+        font-size: 13px;
+        color: var(--cb-text-muted);
+        font-weight: 600;
+      }
+
+      .pill-btn {
+        background-color: var(--cb-bg-darker);
+        border: 1px solid var(--cb-border);
+        color: var(--cb-text-muted);
+        padding: 5px 12px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+
+      .pill-btn:hover, .pill-btn.active {
+        background-color: var(--cb-blue);
+        color: var(--cb-text-light);
+        border-color: var(--cb-blue);
+      }
+
       /* Tabla Accesible */
       .table-container {
         background-color: var(--cb-bg-darker);
@@ -300,6 +368,105 @@
         color: var(--cb-text-light);
       }
 
+      /* Herramientas de Búsqueda Rápida Biomédica */
+      .interactive-tools-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 25px;
+        margin-bottom: 40px;
+      }
+
+      .tool-box {
+        background-color: var(--cb-bg-darker);
+        border: 1px solid var(--cb-border);
+        border-radius: 8px;
+        padding: 25px;
+      }
+
+      .tool-box h3 {
+        font-size: 18px;
+        color: var(--cb-orange);
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .search-form-direct {
+        display: flex;
+        gap: 10px;
+      }
+
+      .search-form-direct input {
+        flex: 1;
+        padding: 10px 14px;
+        border-radius: 4px;
+        border: 1px solid var(--cb-border);
+        background: var(--cb-bg-darkest);
+        color: var(--cb-text-light);
+        font-size: 13px;
+      }
+
+      .search-form-direct select {
+        padding: 10px;
+        border-radius: 4px;
+        border: 1px solid var(--cb-border);
+        background: var(--cb-bg-darkest);
+        color: var(--cb-text-light);
+        font-size: 13px;
+      }
+
+      .btn-action {
+        background-color: var(--cb-blue);
+        color: var(--cb-text-light);
+        border: none;
+        padding: 10px 16px;
+        border-radius: 4px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: background 0.2s;
+      }
+
+      .btn-action:hover {
+        background-color: #005a8d;
+      }
+
+      /* Generador / Copiador de Sintaxis */
+      .syntax-item {
+        background-color: var(--cb-bg-darkest);
+        border: 1px solid var(--cb-border);
+        border-radius: 4px;
+        padding: 10px;
+        margin-top: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-family: 'Source Code Pro', monospace;
+        font-size: 12px;
+      }
+
+      .syntax-code {
+        color: var(--cb-teal);
+        overflow-x: auto;
+        white-space: nowrap;
+        margin-right: 10px;
+      }
+
+      .btn-copy {
+        background: none;
+        border: 1px solid var(--cb-orange);
+        color: var(--cb-orange);
+        padding: 4px 8px;
+        border-radius: 4px;
+        font-size: 11px;
+        cursor: pointer;
+      }
+
+      .btn-copy:hover {
+        background: var(--cb-orange);
+        color: var(--cb-bg-darkest);
+      }
+
       /* Herramientas Grid */
       .tools-grid {
         display: grid;
@@ -358,6 +525,7 @@
             <li><a href="#inicio">Inicio</a></li>
             <li><a href="#objetivos">Objetivos</a></li>
             <li><a href="#programa">Programa</a></li>
+            <li><a href="#herramientas">Búsqueda Directa</a></li>
             <li><a href="#recursos">Recursos</a></li>
           </ul>
         </nav>
@@ -428,8 +596,26 @@
         <div class="section-heading">
           <h2>Programa y Temario Detallado</h2>
         </div>
+
+        <!-- Buscador Interactivo de Sesiones -->
+        <div class="search-container">
+          <div class="search-input-wrapper">
+            <i class="fas fa-search"></i>
+            <input type="text" id="searchTable" placeholder="Filtrar por tema, producto o palabra clave (ej. Zotero, PMC, Video, Ontologías)..." />
+          </div>
+          <div class="filter-pills">
+            <span class="filter-label">Filtro rápido:</span>
+            <button class="pill-btn active" data-filter="all">Todos</button>
+            <button class="pill-btn" data-filter="Zotero">Zotero</button>
+            <button class="pill-btn" data-filter="Video">Video</button>
+            <button class="pill-btn" data-filter="Audio">Audio</button>
+            <button class="pill-btn" data-filter="Ensayo">Ensayo / Escrito</button>
+            <button class="pill-btn" data-filter="Bases">Bases de Datos</button>
+          </div>
+        </div>
+
         <div class="table-container">
-          <table>
+          <table id="programTable">
             <thead>
               <tr>
                 <th>Sesión</th>
@@ -585,7 +771,59 @@
       </div>
     </section>
 
-   <!-- Recursos Principales -->
+    <!-- Herramientas Interactivas de Búsqueda Directa -->
+    <section class="section" id="herramientas">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Búsqueda Directa y Sintaxis Útiles</h2>
+        </div>
+        <div class="interactive-tools-grid">
+          
+          <!-- Buscador Directo -->
+          <div class="tool-box">
+            <h3><i class="fas fa-search-plus"></i> Buscador Biomédico Directo</h3>
+            <p style="font-size: 13px; color: var(--cb-text-muted); margin-bottom: 15px;">
+              Escribe tus términos y consulta directamente en la base de datos sin salir de tu flujo de trabajo:
+            </p>
+            <div class="search-form-direct">
+              <input type="text" id="directSearchQuery" placeholder="ej. Microbiota AND Hypertension" />
+              <select id="directSearchTarget">
+                <option value="pmc">PMC</option>
+                <option value="pubmed">PubMed</option>
+                <option value="lens">The Lens</option>
+              </select>
+              <button class="btn-action" onclick="executeDirectSearch()"><i class="fas fa-external-link-alt"></i></button>
+            </div>
+          </div>
+
+          <!-- Copiador de Sintaxis MeSH -->
+          <div class="tool-box">
+            <h3><i class="fas fa-code"></i> Plantillas de Búsqueda Avanzada</h3>
+            <p style="font-size: 13px; color: var(--cb-text-muted); margin-bottom: 10px;">
+              Copia operadores y filtros estructurados para tus revisiones:
+            </p>
+            
+            <div class="syntax-item">
+              <span class="syntax-code">"Microbiota"[Mesh] AND "Lung"[Mesh]</span>
+              <button class="btn-copy" onclick="copyToClipboard('\"Microbiota\"[Mesh] AND \"Lung\"[Mesh]')">Copiar</button>
+            </div>
+
+            <div class="syntax-item">
+              <span class="syntax-code">("Review"[Publication Type]) AND 2020:2026[DP]</span>
+              <button class="btn-copy" onclick="copyToClipboard('(\"Review\"[Publication Type]) AND 2020:2026[DP]')">Copiar</button>
+            </div>
+
+            <div class="syntax-item">
+              <span class="syntax-code">("Metagenomics"[Mesh]) AND "Neoplasms"[Mesh]</span>
+              <button class="btn-copy" onclick="copyToClipboard('(\"Metagenomics\"[Mesh]) AND \"Neoplasms\"[Mesh]')">Copiar</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Recursos Principales -->
     <section class="section" id="recursos">
       <div class="container">
         <div class="section-heading">
@@ -639,9 +877,10 @@
       </div>
     </footer>
 
-    <!-- JS Tabs -->
+    <!-- Scripts de Interacción -->
     <script>
       document.addEventListener("DOMContentLoaded", function () {
+        // Lógica de Tabs
         const tabButtons = document.querySelectorAll(".tab-button");
         const tabContents = document.querySelectorAll(".tab-content");
 
@@ -655,7 +894,64 @@
             document.getElementById(tabId).classList.add("active");
           });
         });
+
+        // Lógica de Búsqueda en Vivo en la Tabla
+        const searchInput = document.getElementById("searchTable");
+        const rows = document.querySelectorAll("#programTable tbody tr");
+
+        function filterTable() {
+          const query = searchInput.value.toLowerCase();
+          rows.forEach((row) => {
+            const text = row.textContent.toLowerCase();
+            row.style.display = text.includes(query) ? "" : "none";
+          });
+        }
+
+        searchInput.addEventListener("keyup", filterTable);
+
+        // Lógica de Pills de Filtro Rápido
+        const pillBtns = document.querySelectorAll(".pill-btn");
+        pillBtns.forEach((btn) => {
+          btn.addEventListener("click", () => {
+            pillBtns.forEach((p) => p.classList.remove("active"));
+            btn.classList.add("active");
+            const filterValue = btn.getAttribute("data-filter");
+
+            if (filterValue === "all") {
+              searchInput.value = "";
+            } else {
+              searchInput.value = filterValue;
+            }
+            filterTable();
+          });
+        });
       });
+
+      // Búsqueda directa a motores científicos
+      function executeDirectSearch() {
+        const query = encodeURIComponent(document.getElementById("directSearchQuery").value.trim());
+        const target = document.getElementById("directSearchTarget").value;
+
+        if (!query) return;
+
+        let url = "";
+        if (target === "pmc") {
+          url = `https://pmc.ncbi.nlm.nih.gov/?term=${query}`;
+        } else if (target === "pubmed") {
+          url = `https://pubmed.ncbi.nlm.nih.gov/?term=${query}`;
+        } else if (target === "lens") {
+          url = `https://www.lens.org/lens/search/scholar/structured?q=${query}`;
+        }
+
+        window.open(url, "_blank");
+      }
+
+      // Copiar código al portapapeles
+      function copyToClipboard(text) {
+        navigator.clipboard.writeText(text).then(() => {
+          alert("Sintaxis copiada al portapapeles: " + text);
+        });
+      }
     </script>
   </body>
 </html>
