@@ -58,7 +58,7 @@
       }
 
       .logo a {
-        font-size: 20px;
+        font-size: 19px;
         font-weight: 800;
         color: var(--cb-text-light);
         text-decoration: none;
@@ -74,14 +74,14 @@
       .main-nav ul {
         display: flex;
         list-style: none;
-        gap: 15px;
+        gap: 12px;
       }
 
       .main-nav ul li a {
         color: var(--cb-text-light);
         text-decoration: none;
-        padding: 8px 14px;
-        font-size: 13px;
+        padding: 8px 12px;
+        font-size: 12px;
         font-weight: 600;
         text-transform: uppercase;
         border-radius: 4px;
@@ -172,7 +172,7 @@
 
       /* Secciones Generales */
       .section {
-        padding: 60px 0;
+        padding: 50px 0;
       }
 
       .container {
@@ -357,13 +357,13 @@
         margin-bottom: 4px;
       }
 
-      td a {
+      td a, .card-link {
         color: var(--cb-orange);
         text-decoration: underline;
         font-weight: 600;
       }
 
-      td a:hover {
+      td a:hover, .card-link:hover {
         color: var(--cb-text-light);
       }
 
@@ -427,6 +427,10 @@
         font-weight: 700;
         cursor: pointer;
         transition: background 0.2s;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
       }
 
       .btn-action:hover {
@@ -463,7 +467,7 @@
         display: flex;
         flex-direction: column;
         gap: 15px;
-        max-height: 600px;
+        max-height: 500px;
         overflow-y: auto;
         padding-right: 5px;
       }
@@ -473,11 +477,6 @@
         border: 1px solid var(--cb-border);
         border-radius: 6px;
         padding: 16px;
-        transition: border-color 0.2s;
-      }
-
-      .toot-card:hover {
-        border-color: var(--cb-blue);
       }
 
       .toot-header {
@@ -517,10 +516,6 @@
         line-height: 1.5;
         margin-bottom: 12px;
         word-break: break-word;
-      }
-
-      .toot-content p {
-        margin-bottom: 8px;
       }
 
       .toot-content a {
@@ -579,7 +574,137 @@
         font-size: 14px;
       }
 
-      /* Nuevos Estilos: Evaluación, FAQ y Toolkit */
+      .tool-card span {
+        display: block;
+        font-size: 12px;
+        color: var(--cb-text-muted);
+        margin-top: 5px;
+        font-weight: 400;
+      }
+
+      /* Bloques Modulares Especiales */
+      .module-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+      }
+
+      .module-card {
+        background-color: var(--cb-bg-darker);
+        border: 1px solid var(--cb-border);
+        border-radius: 8px;
+        padding: 24px;
+      }
+
+      .module-card h4 {
+        color: var(--cb-orange);
+        font-size: 17px;
+        margin-bottom: 12px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .module-card p {
+        font-size: 14px;
+        color: var(--cb-text-muted);
+        margin-bottom: 12px;
+      }
+
+      .module-card ul {
+        list-style: none;
+        padding-left: 0;
+      }
+
+      .module-card ul li {
+        font-size: 13px;
+        color: var(--cb-text-muted);
+        margin-bottom: 8px;
+        position: relative;
+        padding-left: 18px;
+      }
+
+      .module-card ul li::before {
+        content: "•";
+        color: var(--cb-teal);
+        font-weight: bold;
+        position: absolute;
+        left: 0;
+      }
+
+      /* Artículos Derivados */
+      .article-item {
+        background-color: var(--cb-bg-darker);
+        border: 1px solid var(--cb-border);
+        border-left: 4px solid var(--cb-blue);
+        border-radius: 6px;
+        padding: 18px;
+        margin-bottom: 15px;
+        transition: border-color 0.2s;
+      }
+
+      .article-item:hover {
+        border-left-color: var(--cb-orange);
+      }
+
+      .article-item h5 {
+        font-size: 15px;
+        color: var(--cb-text-light);
+        margin-bottom: 6px;
+      }
+
+      .article-item p {
+        font-size: 13px;
+        color: var(--cb-text-muted);
+        margin-bottom: 10px;
+      }
+
+      /* Agradecimientos Destacados */
+      .acknowledgments-section {
+        background: linear-gradient(135deg, rgba(230, 159, 0, 0.12) 0%, rgba(0, 114, 178, 0.15) 100%);
+        border: 2px solid var(--cb-orange);
+        border-radius: 12px;
+        padding: 40px;
+        text-align: center;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+      }
+
+      .acknowledgments-section h2 {
+        font-size: 32px;
+        font-weight: 800;
+        color: var(--cb-orange);
+        margin-bottom: 15px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .acknowledgments-section h3 {
+        font-size: 22px;
+        color: var(--cb-text-light);
+        margin-bottom: 20px;
+        font-weight: 700;
+      }
+
+      .acknowledgments-section p {
+        font-size: 16px;
+        color: var(--cb-text-muted);
+        max-width: 900px;
+        margin: 0 auto 15px auto;
+        line-height: 1.8;
+      }
+
+      .acknowledgments-badge {
+        display: inline-block;
+        background-color: var(--cb-blue);
+        color: var(--cb-text-light);
+        padding: 8px 20px;
+        border-radius: 25px;
+        font-weight: 700;
+        font-size: 14px;
+        margin-top: 15px;
+      }
+
+      /* Evaluacion & FAQ */
       .eval-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -666,9 +791,10 @@
             <li><a href="#inicio">Inicio</a></li>
             <li><a href="#evaluacion">Evaluación</a></li>
             <li><a href="#programa">Programa</a></li>
-            <li><a href="#herramientas">Búsqueda Directa</a></li>
-            <li><a href="#mastodon-section">Feed Biomédico</a></li>
-            <li><a href="#faq">FAQ & Ayuda</a></li>
+            <li><a href="#acuerdos-unam">Acuerdos UNAM</a></li>
+            <li><a href="#pids">ORCID & DOI</a></li>
+            <li><a href="#articulos">Publicaciones</a></li>
+            <li><a href="#agradecimientos">Agradecimientos</a></li>
           </ul>
         </nav>
       </div>
@@ -707,7 +833,7 @@
       </div>
     </div>
 
-    <!-- Evaluación y Criterios (Perspectiva del Profesor y Alumno) -->
+    <!-- Evaluación y Criterios -->
     <section class="section" id="evaluacion">
       <div class="container">
         <div class="section-heading">
@@ -754,7 +880,7 @@
             <button class="tab-button" data-tab="tab-3"><i class="fas fa-code-branch"></i> Flujos Reproducibles</button>
           </div>
           <div class="tab-content active" id="tab-1">
-            <p>Formular estrategias avanzadas de búsqueda en bases de datos biomédicas de alto impacto (PubMed, Scopus, Web of Science) mediante sintaxis estructuradas y filtros especializados.</p>
+            <p>Formular estrategias avanzadas de búsqueda en bases de datos biomédicas de alto impacto (PubMed, Scopus, Web of Science, OpenAlex) mediante sintaxis estructuradas y filtros especializados.</p>
           </div>
           <div class="tab-content" id="tab-2">
             <p>Automatizar la gestión de referencias, el seguimiento continuo vía feeds RSS y la síntesis crítica de evidencias utilizando gestores digitales como Zotero.</p>
@@ -946,13 +1072,144 @@
       </div>
     </section>
 
-    <!-- Disposición Apilada Estricta: Búsqueda -> Feed Mastodon -> Preguntas Frecuentes -> Recursos -->
+    <!-- Disposición Apilada Estricta -->
     <div class="container stacked-container">
 
-      <!-- 1. Búsqueda Directa en Bases Biomédicas -->
+      <!-- 1. Acuerdos Transformativos de la UNAM -->
+      <section class="section" id="acuerdos-unam" style="padding: 0;">
+        <div class="section-heading">
+          <h2>Acuerdos Transformativos UNAM (Publicación en Acceso Abierto)</h2>
+        </div>
+        <div class="tool-box">
+          <h3><i class="fas fa-file-signature"></i> Publicación en Acceso Abierto sin Costo (APC Waiver)</h3>
+          <p style="font-size: 14px; color: var(--cb-text-muted); margin-bottom: 15px;">
+            La Universidad Nacional Autónoma de México, a través de la Subdirección de Servicios de Información Especializada (SSIE-DGBM), mantiene acuerdos transformativos con diversas editoriales internacionales para exentar o descontar el pago de cargos por procesamiento de artículos (APC) a la comunidad académica y de posgrado.
+          </p>
+          <a href="https://digitalab-ssie.unam.mx/acuerdos" target="_blank" class="btn-action">
+            <i class="fas fa-external-link-alt"></i> Consultar Acuerdos Vigentes UNAM
+          </a>
+        </div>
+      </section>
+
+      <!-- 2. Identificadores Persistentes (PIDs) -->
+      <section class="section" id="pids" style="padding: 0;">
+        <div class="section-heading">
+          <h2>Identificadores Persistentes (PIDs) en Investigación</h2>
+        </div>
+        <div class="module-grid">
+          <div class="module-card">
+            <h4><i class="fas fa-id-badge"></i> ORCID iD</h4>
+            <p>Identificador digital único y permanente para investigadores que distingue la autoría y conecta publicaciones de manera unívoca.</p>
+            <ul>
+              <li>Evita la ambigüedad de nombres de autor.</li>
+              <li>Requisito obligatorio en la mayoría de convocatorias y revistas.</li>
+            </ul>
+            <a href="https://orcid.org/register" target="_blank" class="card-link"><i class="fas fa-user-plus"></i> Crear registro ORCID gratuito</a>
+          </div>
+          <div class="module-card">
+            <h4><i class="fas fa-fingerprint"></i> DOI (Digital Object Identifier)</h4>
+            <p>Infraestructura estandarizada por ISO para la localización permanente de objetos de conocimiento digital (artículos, conjuntos de datos, protocolos).</p>
+            <ul>
+              <li>Garantiza enlaces persistentes e inalterables.</li>
+              <li>Soportado globalmente por Crossref y DataCite.</li>
+            </ul>
+            <a href="https://www.doi.org/" target="_blank" class="card-link"><i class="fas fa-globe"></i> Saber más sobre el sistema DOI</a>
+          </div>
+          <div class="module-card">
+            <h4><i class="fas fa-building"></i> ROR (Research Organization Registry)</h4>
+            <p>Registro abierto de identificadores persistentes para organizaciones de investigación científica global.</p>
+            <ul>
+              <li>Normaliza la afiliación institucional (ej. UNAM).</li>
+              <li>Integración transparente con ORCID y Crossref.</li>
+            </ul>
+            <a href="https://ror.org/" target="_blank" class="card-link"><i class="fas fa-search"></i> Buscar registros ROR</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. Ciencia Abierta y Licenciamiento -->
+      <section class="section" id="ciencia-abierta" style="padding: 0;">
+        <div class="section-heading">
+          <h2>Ciencia Abierta y Licencias Creative Commons</h2>
+        </div>
+        <div class="module-grid">
+          <div class="module-card">
+            <h4><i class="fas fa-unlock-alt"></i> Pilares de la Ciencia Abierta</h4>
+            <p>Movimiento para hacer la investigación científica, los datos y su difusión accesibles a todos los niveles de una sociedad digitalizada.</p>
+            <ul>
+              <li>Acceso Abierto a Publicaciones (*Open Access*).</li>
+              <li>Servidores de Preprints (medRxiv, bioRxiv, SciELO Preprints).</li>
+              <li>Datos Abiertos de Investigación (*Open Data* - FAIR Principles).</li>
+            </ul>
+          </div>
+          <div class="module-card">
+            <h4><i class="fab fa-creative-commons"></i> Licencias Creative Commons (CC)</h4>
+            <p>Herramientas legales gratuitas que permiten a los autores otorgar permisos del derecho de autor al público de manera estandarizada.</p>
+            <ul>
+              <li><strong>CC BY (Atribución):</strong> Permite compartir y adaptar citando al autor original.</li>
+              <li><strong>CC BY-NC:</strong> Uso no comercial.</li>
+              <li><strong>CC BY-SA:</strong> Compartir igual bajo la misma licencia.</li>
+            </ul>
+            <a href="https://creativecommons.org/licenses/?lang=es" target="_blank" class="card-link"><i class="fas fa-info-circle"></i> Explorar Tipos de Licencias CC</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. Ontologías y Tesauros Biomédicos -->
+      <section class="section" id="ontologias" style="padding: 0;">
+        <div class="section-heading">
+          <h2>Ontologías y Tesauros Biomédicos</h2>
+        </div>
+        <div class="tool-box">
+          <p style="font-size: 14px; color: var(--cb-text-muted); margin-bottom: 20px;">
+            Sistemas estructurados de control de vocabulario e interconexión semántica para la indización, anotación de metadatos y recuperación precisa de información médica y genómica:
+          </p>
+          <div class="module-grid">
+            <div class="module-card">
+              <h4><i class="fas fa-tags"></i> MeSH (Medical Subject Headings)</h4>
+              <p>Tesauro controlado producido por la U.S. National Library of Medicine (NLM) utilizado para la indización de artículos en PubMed/MEDLINE.</p>
+              <a href="https://meshb.nlm.nih.gov/search" target="_blank" class="card-link"><i class="fas fa-search"></i> Buscador MeSH Browser</a>
+            </div>
+            <div class="module-card">
+              <h4><i class="fas fa-project-diagram"></i> BioPortal (NCBO)</h4>
+              <p>El repositorio de ontologías científicas y biomédicas más completo del mundo (SNOMED CT, Gene Ontology, ICD-10, ChEBI).</p>
+              <a href="https://bioportal.bioontology.org/" target="_blank" class="card-link"><i class="fas fa-network-wired"></i> Explorar BioPortal</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. Bibliometría y Altmetría -->
+      <section class="section" id="bibliometria" style="padding: 0;">
+        <div class="section-heading">
+          <h2>Bibliometría, Altmetría y Análisis de Impacto</h2>
+        </div>
+        <div class="module-grid">
+          <div class="module-card">
+            <h4><i class="fas fa-chart-line"></i> Bibliometría y R Bibliometrix</h4>
+            <p>Aplicación de métodos matemáticos y estadísticos a toda la literatura científica para evaluar patrones de publicación, redes de coautoría y mapas temáticos.</p>
+            <ul>
+              <li><strong>Bibliometrix / Biblioshiny:</strong> Paquete de R de código abierto de referencia mundial para análisis bibliométrico visual.</li>
+              <li>Análisis de leyes bibliométricas (Lotka, Bradford, Zipf).</li>
+            </ul>
+            <a href="https://www.bibliometrix.org/" target="_blank" class="card-link"><i class="fas fa-code"></i> Portal Oficial Bibliometrix</a>
+          </div>
+          <div class="module-card">
+            <h4><i class="fas fa-share-alt"></i> Altmetría (Métricas Alternativas)</h4>
+            <p>Medición del impacto, atención en línea y divulgación social del conocimiento científico más allá de las citas académicas tradicionales.</p>
+            <ul>
+              <li>Menciones en redes sociales, Wikipedia, noticias y documentos de políticas públicas.</li>
+              <li>Herramientas integradas: <strong>Altmetric Donut</strong> y <strong>PlumX Metrics</strong>.</li>
+            </ul>
+            <a href="https://www.altmetric.com/" target="_blank" class="card-link"><i class="fas fa-chart-pie"></i> Conocer Altmetric</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 6. Búsqueda Directa en Bases Biomédicas -->
       <section class="section" id="herramientas" style="padding: 0;">
         <div class="section-heading">
-          <h2>Búsqueda Directa en Bases Biomédicas</h2>
+          <h2>Búsqueda Directa en Motores Científicos</h2>
         </div>
         <div class="tool-box">
           <h3><i class="fas fa-search-plus"></i> Consulta Directa</h3>
@@ -964,6 +1221,9 @@
             <select id="directSearchTarget">
               <option value="pmc">PMC</option>
               <option value="pubmed">PubMed</option>
+              <option value="openalex">OpenAlex</option>
+              <option value="scholar">Google Scholar</option>
+              <option value="wikidata">Wikidata</option>
               <option value="lens">The Lens</option>
             </select>
             <button class="btn-action" onclick="executeDirectSearch()"><i class="fas fa-external-link-alt"></i> Buscar</button>
@@ -971,7 +1231,7 @@
         </div>
       </section>
 
-      <!-- 2. Feed Dinámico de Mastodon: Literatura Biomédica & Novedades -->
+      <!-- 7. Feed Dinámico de Mastodon -->
       <section class="section" id="mastodon-section" style="padding: 0;">
         <div class="section-heading">
           <h2>Novedades en Literatura Biomédica (Mastodon Feed)</h2>
@@ -993,10 +1253,10 @@
         </div>
       </section>
 
-      <!-- 3. Preguntas Frecuentes (FAQ para Alumnos) -->
+      <!-- 8. Preguntas Frecuentes (FAQ) -->
       <section class="section" id="faq" style="padding: 0;">
         <div class="section-heading">
-          <h2>Preguntas Frecuentes & Ayuda Rápidas</h2>
+          <h2>Preguntas Frecuentes & Ayuda Rápida</h2>
         </div>
         <div style="width: 100%;">
           <div class="faq-item">
@@ -1010,11 +1270,11 @@
           </div>
           <div class="faq-item">
             <div class="faq-question" onclick="toggleFaq(this)">
-              <span><i class="fas fa-users" style="color: var(--cb-orange); margin-right: 8px;"></i> ¿Cómo me uniré al grupo compartido de Zotero?</span>
+              <span><i class="fas fa-users" style="color: var(--cb-orange); margin-right: 8px;"></i> ¿Cómo me uno al grupo compartido de Zotero?</span>
               <i class="fas fa-chevron-down"></i>
             </div>
             <div class="faq-answer">
-              Crea una cuenta gratuita en Zotero.org y haz clic en el enlace "Zotero PCM" disponible en la tabla del programa (Sesión 1 y 7) para solicitar unirte al grupo de la materia.
+              Crea una cuenta gratuita en Zotero.org y haz clic en el enlace "Zotero PCM" disponible en la tabla del programa para solicitar unirte al grupo de la materia.
             </div>
           </div>
           <div class="faq-item">
@@ -1029,48 +1289,112 @@
         </div>
       </section>
 
-      <!-- 4. Recursos Principales -->
+      <!-- 9. Recursos Principales Ampliados -->
       <section class="section" id="recursos" style="padding: 0;">
         <div class="section-heading">
-          <h2>Recursos Principales</h2>
+          <h2>Recursos y Directorios Principales</h2>
         </div>
         <div class="tools-grid">
           <a href="https://pmc.ncbi.nlm.nih.gov/" target="_blank" class="tool-card">
             <i class="fas fa-database"></i>
             <p>PubMed Central (PMC)</p>
+            <span>Artículos completos gratuitos</span>
+          </a>
+          <a href="https://openalex.org/" target="_blank" class="tool-card">
+            <i class="fas fa-globe-americas"></i>
+            <p>OpenAlex</p>
+            <span>Catálogo abierto global</span>
+          </a>
+          <a href="https://scholar.google.com/" target="_blank" class="tool-card">
+            <i class="fas fa-graduation-cap"></i>
+            <p>Google Scholar</p>
+            <span>Buscador académico universal</span>
+          </a>
+          <a href="https://www.wikidata.org/" target="_blank" class="tool-card">
+            <i class="fas fa-cubes"></i>
+            <p>Wikidata</p>
+            <span>Base de conocimiento estructurado</span>
           </a>
           <a href="https://www.lens.org/" target="_blank" class="tool-card">
             <i class="fas fa-search"></i>
             <p>The Lens</p>
+            <span>Literatura & Patentes</span>
           </a>
           <a href="https://pubmed.ncbi.nlm.nih.gov/" target="_blank" class="tool-card">
             <i class="fas fa-microscope"></i>
             <p>PubMed</p>
+            <span>MEDLINE Index</span>
           </a>
-          <a href="https://europepmc.org/" target="_blank" class="tool-card">
-            <i class="fas fa-globe"></i>
-            <p>Europe PMC</p>
+          <a href="https://creativecommons.org/" target="_blank" class="tool-card">
+            <i class="fab fa-creative-commons"></i>
+            <p>Creative Commons</p>
+            <span>Licenciamiento Abierto</span>
           </a>
           <a href="https://biogarabatos.blogspot.com/" target="_blank" class="tool-card">
             <i class="fas fa-newspaper"></i>
             <p>Biogarabatos</p>
+            <span>Blog Académico</span>
           </a>
           <a href="https://www.zotero.org/groups/4563540/cursopcm/library" target="_blank" class="tool-card">
             <i class="fas fa-layer-group"></i>
             <p>Biblioteca Zotero</p>
+            <span>Colección del Curso</span>
           </a>
-          <a href="https://bioportal.bioontology.org/" target="_blank" class="tool-card">
-            <i class="fas fa-project-diagram"></i>
-            <p>BioPortal</p>
-          </a>
-          <a href="https://github.com/lmichan/LivingReviews" target="_blank" class="tool-card">
-            <i class="fab fa-github"></i>
-            <p>Living Reviews</p>
-          </a>
-          <a href="https://www.pmdcmos.unam.mx/?page_id=7293" target="_blank" class="tool-card">
-            <i class="fas fa-graduation-cap"></i>
-            <p>Posgrado en Ciencias Médicas</p>
-          </a>
+        </div>
+      </section>
+
+      <!-- 10. Artículos Derivados del Curso y del Proyecto -->
+      <section class="section" id="articulos" style="padding: 0;">
+        <div class="section-heading">
+          <h2>Artículos Derivados del Curso y Proyecto</h2>
+        </div>
+        <div style="width: 100%;">
+          <div class="article-item">
+            <h5>Artículo 1 • Scientometrics / Springer (2026)</h5>
+            <p>Contribución sobre metodologías de evaluación y análisis de la literatura científica biomédica.</p>
+            <a href="https://link.springer.com/article/10.1007/s44473-026-00124-6" target="_blank" class="card-link"><i class="fas fa-external-link-alt"></i> Ver publicación en Springer</a>
+          </div>
+
+          <div class="article-item">
+            <h5>Artículo 2 • Innovación Educativa UNAM</h5>
+            <p>Estrategias pedagógicas e intervención de herramientas informáticas en la enseñanza de literatura científica.</p>
+            <a href="http://www.innovacioneducativa.unam.mx:8080/jspui/handle/123456789/8445" target="_blank" class="card-link"><i class="fas fa-external-link-alt"></i> Ver en Repositorio Innovación Educativa</a>
+          </div>
+
+          <div class="article-item">
+            <h5>Artículo 3 • Medigraphic</h5>
+            <p>Investigación en educación médica y curaduría bibliográfica aplicada a ciencias de la salud.</p>
+            <a href="https://www.medigraphic.com/cgi-bin/new/resumen.cgi?IDARTICULO=119446" target="_blank" class="card-link"><i class="fas fa-external-link-alt"></i> Ver resumen en Medigraphic</a>
+          </div>
+
+          <div class="article-item">
+            <h5>Artículo 4 • Dialnet</h5>
+            <p>Análisis documental y competencias digitales en posgrados en biociencias.</p>
+            <a href="https://dialnet.unirioja.es/servlet/articulo?codigo=10140878" target="_blank" class="card-link"><i class="fas fa-external-link-alt"></i> Ver en Dialnet</a>
+          </div>
+
+          <div class="article-item">
+            <h5>Artículo 5 • SciELO México</h5>
+            <p>Estudios cienciométricos y enseñanza de la literatura científica en ciencias médicas.</p>
+            <a href="https://www.scielo.org.mx/scielo.php?pid=S2007-50572024000100120&script=sci_arttext" target="_blank" class="card-link"><i class="fas fa-external-link-alt"></i> Ver texto completo en SciELO</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 11. Sección Destacada de Agradecimientos -->
+      <section class="section" id="agradecimientos" style="padding: 0;">
+        <div class="acknowledgments-section">
+          <h2><i class="fas fa-award"></i> Agradecimientos</h2>
+          <h3>A todos los participantes del proyecto BIOliteratura</h3>
+          <p>
+            Expresamos nuestro sincero reconocimiento a todas las profesoras, profesores, alumnas y alumnos participantes del proyecto <strong>BIOliteratura</strong> por su invaluable compromiso y colaboración en la construcción de este espacio de aprendizaje continuo.
+          </p>
+          <p>
+            Agradecemos el financiamiento otorgado por la <strong>Universidad Nacional Autónoma de México (UNAM)</strong> a través de la Dirección General de Asuntos del Personal Académico (<strong>DGAPA</strong>).
+          </p>
+          <div class="acknowledgments-badge">
+            <i class="fas fa-certificate"></i> Proyecto PAPIME PE203625: "Competencias para la enseñanza-aprendizaje de bioliteratura: Una intervención estratégica 2025-2026"
+          </div>
         </div>
       </section>
 
@@ -1079,7 +1403,7 @@
     <!-- Footer -->
     <footer>
       <div class="container">
-        <p>Informática para la Literatura en Ciencias Médicas • Posgrado UNAM</p>
+        <p>Informática para la Literatura en Ciencias Médicas • Posgrado UNAM • Proyecto PAPIME PE203625</p>
       </div>
     </footer>
 
@@ -1158,6 +1482,12 @@
           url = `https://pmc.ncbi.nlm.nih.gov/?term=${query}`;
         } else if (target === "pubmed") {
           url = `https://pubmed.ncbi.nlm.nih.gov/?term=${query}`;
+        } else if (target === "openalex") {
+          url = `https://openalex.org/works?search=${query}`;
+        } else if (target === "scholar") {
+          url = `https://scholar.google.com/scholar?q=${query}`;
+        } else if (target === "wikidata") {
+          url = `https://www.wikidata.org/w/index.php?search=${query}`;
         } else if (target === "lens") {
           url = `https://www.lens.org/lens/search/scholar/structured?q=${query}`;
         }
@@ -1165,7 +1495,7 @@
         window.open(url, "_blank");
       }
 
-      // Servidor público y estable para consulta pública de hashtags científicos
+      // Servidor público para consulta de hashtags científicos en Mastodon
       const MASTODON_INSTANCE = "https://mastodon.social";
 
       async function loadBioMastodonFeed(hashtag, element) {
@@ -1179,7 +1509,7 @@
         container.innerHTML = `<p style="text-align: center; color: var(--cb-text-muted); padding: 20px;"><i class="fas fa-spinner fa-spin"></i> Obteniendo publicaciones recientes sobre #${hashtag}...</p>`;
 
         try {
-          const response = await fetch(`${MASTODON_INSTANCE}/api/v1/timelines/tag/${hashtag}?limit=12`, {
+          const response = await fetch(`${MASTODON_INSTANCE}/api/v1/timelines/tag/${hashtag}?limit=10`, {
             headers: { 'Accept': 'application/json' }
           });
 
