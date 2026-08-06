@@ -1243,16 +1243,27 @@
         </div>
         <div class="mastodon-container">
           <div class="mastodon-header">
+          <div>
             <h3><i class="fab fa-mastodon"></i> Tendencias & Novedades en Biociencias y Salud</h3>
-            <div class="filter-pills" id="mastodonTagFilters">
-              <button class="pill-btn active" onclick="loadBioMastodonFeed('OpenScience', this)">#OpenScience</button>
-              <button class="pill-btn" onclick="loadBioMastodonFeed('BiomedicalScience', this)">#BiomedicalScience</button>
-              <button class="pill-btn" onclick="loadBioMastodonFeed('PubMed', this)">#PubMed</button>
-              <button class="pill-btn" onclick="loadBioMastodonFeed('OpenAccess', this)">#OpenAccess</button>
-              <button class="pill-btn" onclick="loadBioMastodonFeed('Bioinformatics', this)">#Bioinformatics</button>
-              <button class="pill-btn" onclick="loadBioMastodonFeed('@lma@mstdn.social', this)">@lma@mstdn.social</button>
+            <!-- Botones de seguimiento de los profesores -->
+            <div class="mastodon-profiles" style="margin-top: 10px; display: flex; gap: 10px; flex-wrap: wrap;">
+              <a href="https://mstdn.social/@lma" target="_blank" class="btn-follow">
+                <i class="fab fa-mastodon"></i> Sigue a Layla <span>@lma@mstdn.social</span>
+              </a>
+              <a href="https://mastodon.social/@israelmv" target="_blank" class="btn-follow">
+                <i class="fab fa-mastodon"></i> Sigue a Isra <span>@israelmv@mastodon.social</span>
+              </a>
             </div>
           </div>
+          
+          <div class="filter-pills" id="mastodonTagFilters">
+            <button class="pill-btn active" onclick="loadBioMastodonFeed('MedicalLiterature', this)">#MedicalLiterature</button>
+            <button class="pill-btn" onclick="loadBioMastodonFeed('BiomedicalScience', this)">#BiomedicalScience</button>
+            <button class="pill-btn" onclick="loadBioMastodonFeed('PubMed', this)">#PubMed</button>
+            <button class="pill-btn" onclick="loadBioMastodonFeed('OpenAccess', this)">#OpenAccess</button>
+            <button class="pill-btn" onclick="loadBioMastodonFeed('Bioinformatics', this)">#Bioinformatics</button>
+          </div>
+        </div>
           <div class="mastodon-feed-list" id="mastodonFeed">
             <p style="text-align: center; color: var(--cb-text-muted); padding: 20px;">Cargando novedades biomédicas...</p>
           </div>
