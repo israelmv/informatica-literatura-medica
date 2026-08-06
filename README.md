@@ -3,3 +3,4 @@ Este curso de posgrado proporciona las herramientas informáticas, bioinformáti
 
 #**pagina web**
 https://israelmv.github.io/informatica-literatura-medica/
+
